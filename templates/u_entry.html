@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規ユーザ登録</title>
+</head>
+<h1>サインアップフォーム</h1>
+    <!-- エラー　-->
+    {% if e == "2" %}
+    <p style="color: red;">登録失敗</p>
+    {% endif %}
+        
+    <form action="{{ url_for('entry_page') }}" method="post">
+        ID:<input type="text" name="u_id">       
+        PW:<input type="password" name="pw">
+        <input type="submit" value="登録">
+    </form>

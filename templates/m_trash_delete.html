@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ごみ情報削除</title>
+</head>
+<body>
+    <!-- エラー　-->
+    {% if e == "6" %}
+    <p style="color: red;">削除失敗</p>
+    {% endif %}
+    <form action="{{ url_for('m_trash_delete') }}" method="post">
+        ID:<input type="text" name="GarbageID"><br>
+        <input type="submit" value="削除">
+    </form>
+</body>
+</html>

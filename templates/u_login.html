@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザ登録</title>
+</head>
+<body>
+    <h1>Flask APP</h1>
+    <h1>ログインフォーム</h1>
+    {% if e == "1" %}
+        <p style="color: red;">ログイン失敗</p>
+    {% endif %}
+
+    <form action="#" method="post">
+        ID:<input type="text" name="u_id">
+        PW:<input type="password" name="pw">
+        <input type="submit" value="ログイン">
+    </form>
+    <a href="{{ url_for('entry')}}">新規登録</a>
+</body>
+</html>

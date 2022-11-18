@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ごみ情報登録</title>
+</head>
+<body>
+    <!-- エラー　-->
+    {% if e == "5" %}
+    <p style="color: red;">登録失敗</p>
+    {% endif %}
+    <form action="{{ url_for('m_trash_entry') }}" method="post">
+        ID:<input type="text" name="GarbageID">
+        ごみの名前:<input type="text" name="GarbageName"><br>
+        ごみの種類:<input type="text" name="Separation">
+        分別方法:<input type="text" name="Category"><br>
+        <input type="submit" value="登録">
+    </form>
+</body>
+</html>
