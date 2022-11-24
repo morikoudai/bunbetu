@@ -1,0 +1,15 @@
+{
+    "listeners": {
+        "*:8080": {
+            "pass": "applications/flask_app"
+        }
+    },
+    
+    "applications": {
+        "flask_app": {
+            "type":"python",
+            "path":"/usr/src/app",
+            "module":"wsgi"
+        }
+    }
+}
