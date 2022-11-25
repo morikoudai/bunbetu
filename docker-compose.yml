@@ -1,0 +1,27 @@
+services:
+  db:
+    build: ./db
+    container_name: app_db
+    hostname: my-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "morijyobi"
+      
+  ap:
+    build: ./ap
+    container_name: app_ap
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ap/app:/usr/src/app/
+    depends_on:
+      - db
+
+  web:
+    build: ./web
+    container_name: app_web
+    ports:
+      - "80:80"
+    depends_on:
+      - ap
