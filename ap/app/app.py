@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask,render_template,redirect,url_for,request
 from db import db_manager
 
 app=Flask(__name__)
@@ -54,17 +54,25 @@ def entry():
     try:
         dbmg=db_manager.db_manager()
         hash_pw, salt = dbmg.calc_pw_hash(pw)
-        sql="insert into User(u_id,hash_pw,salt) value (%s,%s,%s)"
+        sql="insert into User (u_id,hash_pw,salt) value (%s,%s,%s)"
         dbmg.exec_query(sql,(u_id,hash_pw,salt))
     except :
         return redirect(url_for("entry_page", e=2))
     
-    return render_template("s_result.html")
+    return redirect(url_for("entry_page", e=8))
 
 # 検索・表示画面
 @app.route("/u_search")
 def search():
     return render_template("u_search.html")
+@app.route("/u_search",methods=["POST"])
+def u_search():
+    GarbageName=request.form.get(GarbageName)
+
+    dbmg=db_manager.db_manager()
+    sql="select * from Garbagelist where GarbageName=%s"
+    search=dbmg.exec_query(sql,(GarbageName))
+    return render_template("u_search.html",search=search)
 
 # ゴミ一覧
 @app.route("/u_tr_list")
@@ -78,7 +86,11 @@ def u_tr_list():
 # お気に入り登録画面
 @app.route("/u_favorite")
 def favorite():
-    return render_template("u_favorite.html")
+    
+    dbmg=db_manager.db_manager()
+    sql="select * from Favorite"
+    u_favorite=dbmg.exec_query(sql)
+    return render_template("u_favorite.html",u_favorite=u_favorite)
 
 # リサイクル回収場所マップ画面
 @app.route("/u_re_map")
@@ -166,7 +178,7 @@ def trash_entry():
     except:
         return redirect(url_for("m_trash_entry", e=5))
 
-    return redirect(url_for("m_trash_list"))
+    return redirect("/m_trash_list")
 
 # ごみ情報削除
 @app.route("/m_trash_delete")
@@ -246,8 +258,8 @@ def m_entry():
     except :
         return redirect(url_for("m_entry_page", e=4))
     
-    return render_template("m_result.html")
-
+    return redirect(url_for("m_index"))
 
 if __name__=="__main__":
-    app.run(debug=True)
+    # 外部IP空のアクセスを許可 8080ポートで起動
+    app.run(host="0.0.0.0", port=8080)

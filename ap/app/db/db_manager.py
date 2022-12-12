@@ -6,11 +6,11 @@ import string
 class db_manager():
     def connect(self):
         return pymysql.connect(
-            host='localhost', # DBサーバのアドレス
-            user='root',      # DBのユーザ
+            host='localhost',
+            user='root',
             passwd='koudai0523',
-            db='bunbetu_db', # 接続するDB名
-            charset='utf8',   # 文字コード
+            db='bunbetu_db',
+            charset='utf8',
             cursorclass=pymysql.cursors.DictCursor
         )
 

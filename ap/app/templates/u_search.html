@@ -5,6 +5,23 @@
     <title>Document</title>
 </head>
 <body>
+
     <a href="{{url_for('u_tr_list')}}">ごみの項目一覧へ</a>
+    <p>選択してください</p>
+
+    <label for="fruit">選択してください</label>
+    <form action="{{ url_for('search') }}" method="post">
+        <!--<input type="text" name="GarbageName"><br>-->
+    <select id="fruit">
+        <option value="1" type="text" name="GarbageName">燃えるゴミ</option>
+        <option value="2" type="text" name="GarbageName">燃えないゴミ</option>
+        <option value="3" type="text" name="GarbageName">粗大ごみ</option>
+    </select>
+
+    <div>
+        <input type="button" value="Check" id="checkButton">
+    </div>
+
+    </form>
 </body>
 </html>

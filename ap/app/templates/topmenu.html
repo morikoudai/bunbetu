@@ -5,10 +5,11 @@
     <title>利用者メニュー</title>
 </head>
 <body>
-    <h2>成功</h2>
+    <h2>利用者メニュー</h2>
+    <a href="{{ url_for('index')}}">ログアウト</a><br>
     <a href="{{ url_for('search')}}">捨て方一覧・検索</a>
     <a href="{{ url_for('favorite')}}">お気に入り登録一覧</a>
-    <a href="{{ url_for('map')}}">リサイクル回収場所マップ</a>
+    <a href="{{ url_for('map')}}">リサイクル回収場所マップ</a><br>
     <a href="{{ url_for('calender')}}">収集日カレンダー</a>
     <a href="{{ url_for('recycle')}}">リサイクル製品紹介</a>
     <a href="{{ url_for('quize')}}">分別クイズ</a>

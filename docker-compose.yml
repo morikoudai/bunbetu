@@ -1,27 +1,36 @@
 services:
   db:
     build: ./db
-    container_name: app_db
-    hostname: my-mysql
+    container_name: db_server
+    hostname: mysql
     ports:
       - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "morijyobi"
-      
+      MYSQL_ROOT_PASSWORD: "koudai0523"
+    networks:
+      - lamp-net
+
   ap:
     build: ./ap
-    container_name: app_ap
+    container_name: ap_server
     ports:
       - "8080:8080"
     volumes:
-      - ./ap/app:/usr/src/app/
+      - ./ap/app:/usr/src/app
     depends_on:
       - db
-
+    networks:
+      - lamp-net
   web:
     build: ./web
-    container_name: app_web
+    container_name: web_server
     ports:
       - "80:80"
     depends_on:
       - ap
+    networks:
+      - lamp-net
+
+networks:
+  lamp-net:
+    driver: bridge
