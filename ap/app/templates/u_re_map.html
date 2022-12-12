@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>ごみ分別サポートシステム</title>
+</head>
+<body>
+    <h1>リサイクル回収場所マップ</h1>
+    <a href="{{ url_for('index')}}">ログアウト</a><br>
+    <a href="{{ url_for('top_page') }}">利用者メニューに戻る</a><br>
+    <iframe src="https://www.google.com/maps/d/embed?mid=18drTPuTKtqrTOmRLaCQUw8nI3P_XotA&ehbc=2E312F"
+     width="640" height="480"></iframe>
+    
+</body>
+</html>
