@@ -3,12 +3,7 @@
     padding: 0;
     margin: 0;
 }
-.logout {
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px;
-    color: red;
-}
+
 .lap {
     width: 100vw;
     height: 80vh;
@@ -22,7 +17,7 @@
     margin-top: 150px;
     padding : 10px ;
     border : 1px solid black ;
-    background-color : lightgreen ;
+    background-color : green;
     color: white;
 }
 .m-tr-list{
@@ -32,7 +27,7 @@
     margin-top: 150px;
     padding : 10px ;
     border : 1px solid black ;
-    background-color : lightgreen ;
+    background-color : green ;
     color: white;
 }
 
@@ -43,7 +38,7 @@
     margin-top: 150px;
     padding : 10px ;
     border : 1px solid black ;
-    background-color : lightgreen ;
+    background-color : green ;
     color: white;
 }
 
@@ -57,15 +52,8 @@
     width: 300px;
     height: 50px;
     border : 1px solid black ;
-    background-color : lightgreen ;
+    background-color : green ;
     color: white;
-}
-
-.btn {
-    width: 200px;
-    height: 50px;
-    margin: 0 40px 10px 40px;
-    padding: 10px;
 }
 
 .box{
@@ -87,9 +75,62 @@
     background-color: white;
 }
 .btn {
-    border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-  text-decoration: none;
-  color: black;
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    margin: 20px 45px 20px 45px;
+    padding: 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+.entrybox {
+    width: 400px;
+    height: 40px;
+    margin: 20px;
+}
+
+.entrybtn{
+    width: 100px;
+    margin: 50px;
+}
+
+.modoru {
+    width: 80px;
+    height: 30px;
+    margin: 10px 380px 10px 10px;
+}
+
+.logout1 {
+    width: 80px;
+    height: 30px;
+    margin: 10px 10px 30px 800px;
+    text-align: right;
+    color: red;
+}
+
+.logout2 {
+    width: 80px;
+    height: 30px;
+    margin: 10px 10px 10px 380px;
+    color: red;
+}
+
+.delbox {
+    width: 300px;
+    height: 30px;
+    margin: auto;
+    margin: 70px 0 40px 0;   
+}
+
+.modbox1 {
+    width: 200px;
+    height: 40px;
+    margin: 40px 500px 20px 10px;
+}
+
+.modbox2 {
+    width: 200px;
+    height: 40px;
+    margin: 20px;
 }

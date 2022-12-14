@@ -11,20 +11,20 @@
 </head>
 <body>
     <div class="lap">
-        <!-- エラー　-->
         <h3 class="m-tr-entry">ごみ情報登録</h3>
-        {% if e == "5" %}
-        <p style="color: red;">登録失敗</p>
-        {% endif %}
         <div class="box2">
-            <a href="{{ url_for('m_trash_list')}}">戻る</a>
-            <a href="{{ url_for('m_index')}}">ログアウト</a><br>
+            <!-- エラー　-->
+            {% if e == "5" %}
+            <p style="color: red;">登録失敗</p>
+            {% endif %}
+            <a href="{{ url_for('m_trash_list')}}" class="modoru">戻る</a>
+            <a href="{{ url_for('m_index')}}" class="logout2">ログアウト</a><br>
             <form action="{{ url_for('trash_entry') }}" method="post">
-                <input type="text" name="GarbageID" placeholder="ID">
-                <input type="text" name="GarbageName" placeholder="ごみの名前"><br>
-                <input type="text" name="Separation" placeholder="ごみの種類">
-                <input type="text" name="Category" placeholder="分別方法"><br>
-                <input type="submit" value="登録">
+                <input type="text" name="GarbageID" placeholder="ID" class="entrybox">
+                <input type="text" name="GarbageName" placeholder="ごみの名前" class="entrybox"><br>
+                <input type="text" name="Separation" placeholder="ごみの種類" class="entrybox">
+                <input type="text" name="Category" placeholder="分別方法" class="entrybox"><br>
+                <input type="submit" value="登録" class="entrybtn">
             </form>
         </div>
     </div>
