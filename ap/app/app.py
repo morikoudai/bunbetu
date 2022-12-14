@@ -199,7 +199,7 @@ def delete_page():
 
 
 
-# ごみ情報編集
+# ごみ情報修正
 @app.route("/m_trash_modify")
 def m_trash_modify():
     e=request.args.get("e")

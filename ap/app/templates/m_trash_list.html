@@ -12,14 +12,14 @@
     <div class="lap">
         <h3 class="m-tr-list">登録ごみ情報一覧</h3>
         <div class="box2">
-        <a href="{{ url_for('m_index')}}" class="logout">ログアウト</a><br>
+        <a href="{{url_for('m_index')}}" class="logout1">ログアウト</a><br>
         <a href="{{url_for('m_trash_entry')}}" class="btn">ごみ情報登録</a>
         <a href="{{url_for('m_trash_delete')}}" class="btn">ごみ情報削除</a>
         <a href="{{url_for('m_trash_modify')}}" class="btn">ごみ情報修正</a><br>
         
             <form action="{{ url_for('m_trash_list') }}">
                 <table class="table">
-                    <thead class="table-dark">  
+                    <thead class="table-light">
                         <tr>
                             <td>ID</td>
                             <td>ごみの名前</td>
