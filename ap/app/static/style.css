@@ -3,18 +3,33 @@
     padding: 0;
     margin: 0;
 }
-
 .lap {
-    width: 100vw;
-    height: 80vh;
     text-align: center;
 }
+.system {
+    height: 10vh;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.bg-color {
+    width: 100%;
+    height: 86vh;
+    padding: 20px;
+    background-color: #CCFF99;
+}
+
+.bg-table {
+    background-color: #CCFF99;
+}
+
+
 
 .m-login{
     width: 500px;
     height: 50px;
     margin: auto;
-    margin-top: 150px;
     padding : 10px ;
     border : 1px solid black ;
     background-color : green;
@@ -24,7 +39,6 @@
     width: 900px;
     height: 50px;
     margin: auto;
-    margin-top: 150px;
     padding : 10px ;
     border : 1px solid black ;
     background-color : green ;
@@ -35,7 +49,6 @@
     width: 900px;
     height: 50px;
     margin: auto;
-    margin-top: 150px;
     padding : 10px ;
     border : 1px solid black ;
     background-color : green ;
@@ -59,6 +72,14 @@
 .box{
     width: 500px;
     height: 250px;
+    margin: auto;
+    border : 1px solid black ;
+    background-color: rgb(213, 212, 212);
+}
+
+.u-box{
+    width: 500px;
+    height: 300px;
     margin: auto;
     border : 1px solid black ;
     background-color: rgb(213, 212, 212);
@@ -116,6 +137,18 @@
     color: red;
 }
 
+.map-logout {
+    width: 80px;
+    height: 30px;
+    color: red;   
+}
+
+.map-topmenu {
+    width: 80px;
+    height: 30px;
+    margin: 10px 300px 10px 10px;
+}
+
 .delbox {
     width: 300px;
     height: 30px;
@@ -134,3 +167,133 @@
     height: 40px;
     margin: 20px;
 }
+
+.searchtext1 {
+    width: 120px;
+    height: 30px;
+    padding: auto;
+    background-color: #33CC33;
+    margin: auto;
+}
+
+.searchtext2 {
+    width: 200px;
+    height: 30px;
+    padding: auto;
+    background-color: #33CC33;
+    margin: auto;
+}
+
+.loginerr {
+    width: 500px;
+    height: 120px;
+    margin: auto;
+    border : 5px solid red;
+    background-color: #FF6666;
+}
+
+.he-table {
+    width: 700px;
+    margin: auto;
+    
+}
+
+.grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 2%;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+.topmenu{
+    width: 900px;
+    height: 50px;
+    margin: auto;
+    padding : 10px ;
+    border : 1px solid black ;
+    background-color : green;
+    color: white;
+}
+.topbox{
+    width: 900px;
+    height: 370px;
+    margin: auto;
+    margin-bottom: 30px;
+    border : 1px solid black ;
+    background-color: white;
+}
+.toplogout {
+    width: 80px;
+    height: 30px;
+    margin: 10px 10px 30px 800px;
+    text-align: right;
+    color: red;
+}
+.btn2 {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(213, 212, 212);
+    margin: auto;
+    padding: 10px;
+    text-decoration: none;
+    color: blue;
+}
+.btn:hover{
+    opacity:0.6;
+}
+
+.oneArea {
+    background: linear-gradient(#FFFFFF 10%, #E6FFE9 50%);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 513px;
+    margin: 0;
+  }
+  .oneArea p {
+    color: rgb(199, 211, 197);
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .tuArea{
+    background: linear-gradient(#FFFFFF 10%, #E6FFE9 50%);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 560px;
+    margin: 0;
+  }
+  .sanArea{
+    background: linear-gradient(#FFFFFF 10%, #E6FFE9 50%);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 638px;
+    margin: 0;
+  }
+  .example2{
+      width: 20%;
+      min-width: 200px;
+      max-width: 600px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #0D0D0D;
+      background: #F9F9F9;
+      cursor: pointer;
+  }
+  .example3{
+    width: 18%;
+    min-width: 200px;
+    max-width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #0D0D0D;
+    background: #F9F9F9;
+    cursor: pointer;
+  }
+  .button b {
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 1em;
+  }

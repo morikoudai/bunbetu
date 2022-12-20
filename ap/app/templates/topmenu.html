@@ -1,16 +1,41 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>利用者メニュー</title>
-</head>
-<body>
-    <h2>利用者メニュー</h2>
-    <a href="{{ url_for('index')}}">ログアウト</a><br>
-    <a href="{{ url_for('search')}}">捨て方一覧・検索</a>
-    <a href="{{ url_for('favorite')}}">お気に入り登録一覧</a>
-    <a href="{{ url_for('map')}}">リサイクル回収場所マップ</a><br>
-    <a href="{{ url_for('calender')}}">収集日カレンダー</a>
-    <a href="{{ url_for('recycle')}}">リサイクル製品紹介</a>
-    <a href="{{ url_for('quize')}}">分別クイズ</a>
-</body>
+{% extends "template.html" %}
+{% block content %}
+<div class="lap">
+    <h2 class="topmenu">利用者メニュー</h2>
+    <div class="topbox">
+        <a href="{{ url_for('index')}}" class="toplogout">ログアウト</a><br>
+        <div class="wrapper grid">
+            <div class="item">
+                <a href="{{ url_for('search')}}" class="btn2"><img src="static/trash.jpg" height ="50" width="50" /><br>
+                    捨て方一覧・検索
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ url_for('favorite')}}" class="btn2"><img src="static/star.jpeg" height ="50" width="50" /><br>
+                    お気に入り登録一覧
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ url_for('map')}}"class="btn2"><img src="static/map.png" height ="50" width="50" /><br>
+                    リサイクル回収場所マップ
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ url_for('calender')}}" class="btn2"><img src="static/calender.jpg" height ="50" width="50" /><br>
+                    収集日カレンダー
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ url_for('recycle')}}" class="btn2"><img src="static/recycle.png" height ="50" width="50" /><br>
+                    リサイクル製品紹介
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ url_for('quize')}}"class="btn2" ><img src="static/quiz.jpeg" height ="50" width="50" /><br>
+                    分別クイズ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

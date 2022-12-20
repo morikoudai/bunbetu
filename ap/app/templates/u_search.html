@@ -1,27 +1,41 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-
-    <a href="{{url_for('u_tr_list')}}">ごみの項目一覧へ</a>
-    <p>選択してください</p>
-
-    <label for="fruit">選択してください</label>
-    <form action="{{ url_for('search') }}" method="post">
-        <!--<input type="text" name="GarbageName"><br>-->
-    <select id="fruit">
-        <option value="1" type="text" name="GarbageName">燃えるゴミ</option>
-        <option value="2" type="text" name="GarbageName">燃えないゴミ</option>
-        <option value="3" type="text" name="GarbageName">粗大ごみ</option>
-    </select>
-
-    <div>
-        <input type="button" value="Check" id="checkButton">
-    </div>
-
-    </form>
-</body>
-</html>
+{% extends "template.html" %}
+{% block content %}
+<div class="lap">
+    <h3 class="m-tr-list">捨て方検索</h3>
+    <div class="box2">
+        <p class="searchtext1">キーワードで検索</p>
+        <a href="{{url_for('index')}}" class="logout1">ログアウト</a><br>
+        <p>検索したいごみの名前を選択してください。</p><br>
+        <form action="{{ url_for('search') }}">
+            <input type="number" name="Garbageid"><br>
+            <input type="submit" value="検索">
+            <a href="{{ url_for('u_tr_list') }}">ごみ一覧に戻る</a>
+            <p class="searchtext2">ごみの項目検索結果一覧</p><br>
+        </form>
+        <form action="{{ url_for('search') }}">
+            <div id="searchresult">
+                <table class="table table-bordered table-striped he-table">
+                    <thead>
+                        <tr class="bg-table">
+                            <td>ID</td>
+                            <td>ごみの名前</td>
+                            <td>ごみの種類</td>
+                            <td>収集に出す際の条件等</td>
+                        </tr>
+                    </thead>
+                    <tbody class="tr-body">
+                    {% for search in search %}
+                        <tr>
+                            <td>{{search.Garbageid}}</td>
+                            <td>{{search.GarbageName}}</td>
+                            <td>{{search.Category}}</td>
+                            <td>{{search.Separation}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        
+</div>
+{% endblock %}

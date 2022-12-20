@@ -63,15 +63,18 @@ def entry():
 
 # 検索・表示画面
 @app.route("/u_search")
-def search():
+def search_page():
     return render_template("u_search.html")
 @app.route("/u_search",methods=["POST"])
-def u_search():
-    GarbageName=request.form.get(GarbageName)
-
+def search():
+    Garbageid=request.form.get("Garbageid")
+    GarbageName=request.form.get("GarbageName")
+    Separation=request.form.get("Separation")
+    Category=request.form.get("Category")
+    initials=request.form.get("initials")
     dbmg=db_manager.db_manager()
-    sql="select * from Garbagelist where GarbageName=%s"
-    search=dbmg.exec_query(sql,(GarbageName))
+    sql=('select GarbageName,Separation,Category from Garbagelist where Garbageid=%s')
+    search=dbmg.exec_query(sql,(Garbageid,GarbageName,Separation,Category,initials))
     return render_template("u_search.html",search=search)
 
 # ゴミ一覧
@@ -86,11 +89,7 @@ def u_tr_list():
 # お気に入り登録画面
 @app.route("/u_favorite")
 def favorite():
-    
-    dbmg=db_manager.db_manager()
-    sql="select * from Favorite"
-    u_favorite=dbmg.exec_query(sql)
-    return render_template("u_favorite.html",u_favorite=u_favorite)
+    return render_template("u_favorite.html")
 
 # リサイクル回収場所マップ画面
 @app.route("/u_re_map")
@@ -98,9 +97,10 @@ def map():
     return render_template("u_re_map.html")
 
 # 収集日カレンダー画面
-@app.route("/u_co_carender")
+
+@app.route('/u_co_carender')
 def calender():
-    return render_template("u_co_carender.html")
+    return render_template('u_co_carender.html')
 
 #　リサイクル製品紹介画面
 @app.route("/u_recycle")
@@ -211,16 +211,16 @@ def modify_page():
     Separation=request.form.get("Separation")
     Category=request.form.get("Category")
 
-    try:
-        dbmg = db_manager.db_manager()
-        sql = "update Garbagelist set GarbageName=%s,Separation=%s,Category=%s where GarbageID=%s"
-        dbmg.exec_query(sql,(GarbageID,GarbageName,Separation,Category))
-        sql = ("select * from Garbagelist where GarbageID=%s")
-        m_t_modify=dbmg.exec_query(sql,(GarbageID))
-    except:
-           return redirect(url_for("m_trash_modify", e=7))
+    #try:
+    dbmg = db_manager.db_manager()
+    sql = "update Garbagelist set GarbageName=%s,Separation=%s,Category=%s where GarbageID=%s"
+    dbmg.exec_query(sql,(GarbageID,GarbageName,Separation,Category))
+    sql = ("select * from Garbagelist where GarbageID=%s")
+    m_t_modify=dbmg.exec_query(sql,(GarbageID))
+    #except:
+           #return redirect(url_for("m_trash_modify", e=7))
 
-    return render_template("m_trash_list.html",m_t_modify=m_t_modify,GarbageID=GarbageID,GarbageName=GarbageName,
+    return render_template("m_trash_modify.html",m_t_modify=m_t_modify,GarbageID=GarbageID,GarbageName=GarbageName,
         Separation=Separation,Category=Category)
 
 

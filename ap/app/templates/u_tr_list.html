@@ -1,34 +1,33 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>ごみ一覧</title>
-</head>
-<body>
-    <h1>Flask APP</h1>
-    <form action="{{ url_for('u_tr_list') }}">
-        <table class="table table-striped">
-            <tr>
-                <td class="col-2">ID</td>
-                <td class="col-3">ごみの名前</td>
-                <td class="col-3">ごみの種類</td>
-                <td class="col-5">収集に出す際の条件等</td>
-            </tr>
-            {% for u_tr_list in u_tr_list %}
-            <tr>
-                <td>{{ u_tr_list.GarbageID}}</td>
-                <td>{{ u_tr_list.GarbageName }}</td>
-                <td>{{ u_tr_list.Separation }}</td>
-                <td>{{ u_tr_list.Category }}</td>
-                <td>
-                    
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-        
-        <a href="{{url_for('top_page')}}">利用者メニューへ</a>
-    </form>
-    
-</body>
-</html>
+{% extends "template.html" %}
+{% block content %}
+<div class="lap">
+    <h3 class="m-tr-list">ごみ一覧</h3>
+    <div class="box2">
+        <a href="{{url_for('index')}}" class="logout1">ログアウト</a><br>
+        <a href="{{url_for('search')}}">捨て方検索画面へ</a>
+        <form action="{{ url_for('u_tr_list') }}">
+            <table class="table table-bordered table-striped he-table">
+                <thead>
+                    <tr class="bg-table">
+                        <td>ID</td>
+                        <td>ごみの名前</td>
+                        <td>ごみの種類</td>
+                        <td>収集に出す際の条件等</td>
+                    </tr>
+                </thead>
+                <tbody class="tr-body">
+                    {% for u_tr_list in u_tr_list %}
+                    <tr>
+                        <td>{{ u_tr_list.GarbageID}}</td>
+                        <td>{{ u_tr_list.GarbageName }}</td>
+                        <td>{{ u_tr_list.Separation }}</td>
+                        <td>{{ u_tr_list.Category }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{url_for('top_page')}}">利用者メニューに戻る</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
