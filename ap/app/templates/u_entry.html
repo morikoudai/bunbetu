@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>新規ユーザ登録</title>
-</head>
-<body>
-    <h1>サインアップフォーム</h1>
+{% extends "template.html" %}
+{% block content %}
+<div class="lap">
+    <h3 class="m-login">新規利用者登録</h3>
+    <div class="u-box">
     <!-- エラー　-->
     {% if e == "2" %}
     <p style="color: red;">登録失敗</p>
     {% endif %}
-
     {% if e == "8" %}
     <p style="color: blue;">登録完了</p>
     {% endif %}
-        
-    <form action="{{ url_for('entry') }}" method="post">
-        ID:<input type="text" name="u_id">       
-        PW:<input type="password" name="pw">
-        <input type="submit" value="登録">
-    </form>
-    <a href="{{ url_for('index') }}">ログイン画面へ</a>
-</body>
+        <form action="{{ url_for('entry') }}" method="post">
+            <input type="text" name="u_id" class="m-text" placeholder="ログインID"><br>       
+            <input type="password" name="pw" class="m-text" placeholder="パスワード"><br>
+            <input type="submit" value="登録" class="m-btn">
+        </form>
+        <a href="{{ url_for('index') }}">ログイン画面へ</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>ユーザ登録</title>
-</head>
-<body>
-    <h1>分別サポートシステム</h1>
-    <h1>ログインフォーム</h1>
+{% extends "template.html" %}
+{% block content %}
+<div class="lap">
     {% if e == "1" %}
-        <p style="color: red;">ログイン失敗</p>
+    <div class="loginerr">
+        <h2>エラー</h2>
+        <p>IDまたはパスワードが正しくありません！</p>
+        <p>もう一度入力して下さい！</p>
+    </div>
     {% endif %}
-
-    <form action="#" method="post">
-        ID:<input type="text" name="u_id">
-        PW:<input type="password" name="pw">
-        <input type="submit" value="ログイン">
-    </form>
-    <a href="{{ url_for('entry')}}">新規登録</a>
-</body>
-</html>
+    <h3 class="m-login">利用者ログイン</h3>
+    <div class="u-box">
+        <form action="#" method="post">
+            <input type="text" name="u_id" class="m-text" placeholder="ログインID"><br>
+            <input type="password" name="pw" class="m-text" placeholder="パスワード"><br>
+            <input type="submit" class="m-btn" value="ログイン">
+        </form>
+        <a href="{{ url_for('entry')}}">新規ユーザ登録</a>
+    </div>
+</div>
+{% endblock %}

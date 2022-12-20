@@ -14,9 +14,9 @@ create table User (
 );
 create table Garbagellist (
     GarbageID int primary key,
-    GarbageName varchar(100) primary key,
-    Separation varchar(255) primary key,
-    Category varchar(255) primary key
+    GarbageName varchar(100),
+    Separation varchar(255),
+    Category varchar(255)
 );
 create table Recycle (
     RecycleID int primary key,
